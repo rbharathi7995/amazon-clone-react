@@ -26,9 +26,9 @@ function App() {
 
       <Route index element={<HomePage cart={cart}/>} />
       <Route path="checkout" element={<CheckoutPage cart={cart} />} />
-      <Route path="orders" element={<OrderPage cart={cart}/>} />
-      <Route path="tracking" element={<TrackingPage />} />
-      <Route path="*" element={<Page404 />} />
+      <Route path="orders" element={<OrderPage cart={cart} />} />
+      <Route path="tracking/:orderId/:productId" element={<TrackingPage cart={cart}/>} />
+      <Route path="*" element={<Page404 cart={cart}/>} />
     </Routes>
    
     
