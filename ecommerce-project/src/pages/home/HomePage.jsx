@@ -5,6 +5,7 @@ import './HomePage.css'
 import { ProductsGrid } from './ProductsGrid';
 
 
+
 export function HomePage({cart,loadCart}) {
 
     const [products, setProducts] = useState([]);
