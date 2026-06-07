@@ -19,11 +19,18 @@ const[quantity,setQuantity] = useState(cartItem.quantity);
     else{
       setIsUpdateQuantity(true);
     }
- 
-    
-
 
   }
+
+  const handleQuantityKeyDown =(event) => {
+            if(event.key === 'Enter'){
+              fetchUpdateQuantity();
+            }
+            if(event.key === 'Escape'){
+              setQuantity(cartItem.quantity);
+              setIsUpdateQuantity(false);
+            }
+          }
 
 
   const deleteCartItem =async() =>{
@@ -48,6 +55,8 @@ const[quantity,setQuantity] = useState(cartItem.quantity);
         Quantity:{isUpdateQuantity 
           ? 
           <input className="input-text" type="text"
+          onKeyDown={handleQuantityKeyDown}
+          
           value={quantity} onChange ={(event) => {
             const quantitySelector =Number(event.target.value);
             setQuantity(quantitySelector);
