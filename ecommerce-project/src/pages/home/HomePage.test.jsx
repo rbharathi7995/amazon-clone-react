@@ -83,10 +83,17 @@ describe('Home Page Component',() => {
         )
         const productContainer = await screen.findAllByTestId('product-container');
 
-        
+        const quantitySelector1 = within(productContainer[0])
+         .getByTestId('quantity-selector')
+        await user.selectOptions(quantitySelector1,'2')
+
         const firstProduct=within(productContainer[0])
          .getByTestId('add-to-cart-button');
         await user.click(firstProduct);
+
+        const quantitySelector2 = within(productContainer[1])
+         .getByTestId('quantity-selector')
+        await user.selectOptions(quantitySelector2,'3');
 
         const secondProduct=within(productContainer[1])
         .getByTestId('add-to-cart-button')
@@ -96,7 +103,7 @@ describe('Home Page Component',() => {
             '/api/cart-items',
             {
                 productId:'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
-                quantity:1
+                quantity:2
             }
         )
 
@@ -104,7 +111,7 @@ describe('Home Page Component',() => {
             '/api/cart-items',
             {
                 productId:'15b6fc6f-327a-4ec4-896f-486349e85a3d',
-                quantity:1
+                quantity:3
             }
         )
             expect(loadCart).toHaveBeenCalledTimes(2);
