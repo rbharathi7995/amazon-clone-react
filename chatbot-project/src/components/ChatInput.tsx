@@ -88,7 +88,7 @@ export function ChatInput({chatMessages,setChatMessages} : ChatInputProps){
               //This tells TypeScript:
               //event is a keyboard event
               //It comes from an HTML input element
-        ){
+        ){0
          
              if(event.key === "Enter"){
               sendMessage();
